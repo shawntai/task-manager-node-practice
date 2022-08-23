@@ -11,11 +11,14 @@ const getTaskById = (req, res) => {
 };
 
 const createTask = (req, res) => {
-	const newTask = new Task(req.body);
-	newTask
-		.save()
-		.then((result) => res.json({ success: true, result }))
-		.catch((error) => res.json({ error }));
+	// const newTask = new Task(req.body);
+	// newTask
+	// 	.save()
+	// 	.then((result) => res.json({ success: true, result }))
+	// 	.catch((error) => res.json({ error }));
+  Task.create(req.body)
+    .then((result) => res.json({ success: true, result }))
+    .catch((error) => res.json({ error }));
 };
 
 const updateTask = (req, res) => {
